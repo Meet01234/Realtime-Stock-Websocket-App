@@ -1,5 +1,7 @@
 # 📈 Real-Time WebSocket Stock Price App (with Redis Pub/Sub + Docker Compose)
 
+![Screenshot](RSWA.png)
+
 This project is a real-time WebSocket-based stock price broadcasting application built using **Node.js**, **WebSockets**, **Redis Pub/Sub**, and **Docker Compose**.
 
 > 🔧 The app simulates stock prices and sends them to connected WebSocket clients via a Redis channel.
