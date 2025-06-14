@@ -100,7 +100,7 @@ services:
     command: ["node", "publisher.js"]
 ```
 
-### ➕ Package-Lock.json
+### ➕ package-lock.json
 ```bash
 nano package-lock.json
 ```
