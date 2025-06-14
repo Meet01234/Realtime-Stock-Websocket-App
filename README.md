@@ -312,5 +312,6 @@ docker-compose up --build
 
 Visit:  
 `http://<your-ec2-public-ip>:3000`
+![Screenshot](Stock.png)
 
 ---
