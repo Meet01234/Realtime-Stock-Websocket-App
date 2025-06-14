@@ -51,6 +51,9 @@ apt install docker-compose -y
 ## 📁 Create and Add Files
 
 ### ➕ Dockerfile
+```bash
+nano Dockerfile
+```
 
 ```dockerfile
 WORKDIR /app
@@ -66,6 +69,9 @@ CMD ["node", "server.js"]
 ```
 
 ### ➕ docker-compose.yml
+```bash
+nano docker-compose.yml
+```
 
 ```yaml
 services:
@@ -94,7 +100,67 @@ services:
     command: ["node", "publisher.js"]
 ```
 
+### ➕ Package-Lock.json
+```bash
+nano package-lock.json
+```
+
+```json
+{
+  "name": "stock-websocket",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {
+    "": {
+      "dependencies": {
+        "dotenv": "^16.5.0",
+        "express": "^4.5.0",
+        "redis": "^4.7.0",
+        "ws": "^8.18.1"
+      }
+    },
+    "node_modules/@redis/bloom": {
+      "version": "1.2.0",
+      "resolved": "https://registry.npmjs.org/@redis/bloom/-/bloom-1.2.0.tgz",
+      "integrity": "sha512-HG2DFjYKbnNxa0keLH9/3leGJz1mjh09f2RlGLQjZzStpkmZWwvDJAv03qcRY8p80m5+zdKXdYOSBL1p7Cg==",
+      "peerDependencies": {
+        "@redis/client": "^1.0.0"
+      }
+    },
+    "node_modules/@redis/client": {
+      "version": "1.6.0",
+      "resolved": "https://registry.npmjs.org/@redis/client/-/client-1.6.0.tgz",
+      "integrity": "sha512-AR0uffXY0O0EB4YgniAnv3vzVGXCEVYfdpu/CUKvk4p8fLPEy/JSzyrpQ+15WhXelyjRXLTfQ84s4mEXnPg==",
+      "dependencies": {
+        "cluster-key-slot": "1.1.2",
+        "generic-pool": "3.9.0",
+        "yallist": "4.0.0"
+      },
+      "engines": {
+        "node": ">=14"
+      }
+    },
+    "node_modules/@redis/graph": {
+      "version": "1.1.1",
+      "resolved": "https://registry.npmjs.org/@redis/graph/-/graph-1.1.1.tgz",
+      "integrity": "sha512-FEMTFHC8ZoZci1kR611B4ZmiG5z5F3F6a6FZCycrfxdKh0FlGkiAqlexkWMBZci4DcRoyioSuLfw+cj1gWYEx0w==",
+      "peerDependencies": {
+        "@redis/client": "^1.0.0"
+      }
+    },
+    "node_modules/@redis/json": {
+      "version": "1.0.7",
+      "resolved": "https://registry.npmjs.org/@redis/json/-/json-1.0.7.tgz",
+      "integrity": "sha512-6UyXjFzW7BiTkNK4G/92B9PKc6XGy8BiwaqDYcHkd/DVGHYWkUdnQDyzm72V7Tp21WUMhsqz5oy65kPcQ=="
+    }
+  }
+}
+```
+
 ### ➕ package.json
+```bash
+nano package.json
+```
 
 ```json
 {
@@ -116,6 +182,9 @@ services:
 ```
 
 ### ➕ publisher.js
+```bash
+nano  publisher.js
+```
 
 ```js
 const Redis = require("ioredis");
@@ -138,6 +207,9 @@ setInterval(() => {
 ```
 
 ### ➕ server.js
+```bash
+nano  server.js
+```
 
 ```js
 const express = require("express");
@@ -186,7 +258,21 @@ server.listen(PORT, HOST, () => {
 });
 ```
 
+## 🛠️ Install Express WS Redis Commands
+```bash
+npm install express ws redis dotenv
+```
+
+## 🛠️ Install wscast Commands
+```bash
+npm install -g wscat
+```
+
 ### ➕ public/index.html
+```bash
+mkdir -p public
+nano public/index.html
+```
 
 ```html
 <!DOCTYPE html>
@@ -228,10 +314,3 @@ Visit:
 `http://<your-ec2-public-ip>:3000`
 
 ---
-
-## 🛠️ Useful Commands
-
-```bash
-npm install -g wscat
-wscat -c ws://localhost:3000
-```
